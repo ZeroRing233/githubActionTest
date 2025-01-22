@@ -91,9 +91,9 @@ jobs:
         uses: Lyoko-Jeremie/js-copy-github-action@master
         with:
           srcBase: ${{ github.workspace }}/ModLoader/mod/mySubUi/
-          source: ModSubUiAngularJs.mod.zip
+          source: ${{ github.workspace }}/ModLoader/mod/mySubUi/ModSubUiAngularJs.mod.zip
           destBase: ${{ github.workspace }}/output/
-          target: myModSubUi-${{ github.sha }}.zip
+          target: ${{ github.workspace }}/output/myModSubUi-${{ github.sha }}.zip
 
       # make package  OK =========================================
 
