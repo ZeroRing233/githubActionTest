@@ -93,37 +93,24 @@ jobs:
           srcBase: ${{ github.workspace }}/ModLoader/mod/mySubUi/
           source: ${{ github.workspace }}/ModLoader/mod/mySubUi/ModSubUiAngularJs.mod.zip
           destBase: ${{ github.workspace }}/output/
-          target: ${{ github.workspace }}/output/myModSubUi-${{ github.sha }}.zip
-
+          target: ${{ github.workspace }}/output/
       # make package  OK =========================================
-
-      - name: Upload
-        uses: actions/upload-artifact@v3
-        with:
-          name: myModSubUi-${{ github.sha }}
-          path: ${{ github.workspace }}/output/myModSubUi-${{ github.sha }}.zip
-
-      - name: Get Current Time
-        id: time
-        uses: nanzm/get-time-action@master
-        with:
-          timeZone: UTC+8
-          format: 'YYYY-MM-DD-HH-mm-ss'
 
       - name: Rename Archive (Manually)
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          mv "output/myModSubUi-${{ github.sha }}.zip" "output/myModSubUi-${{ github.event.inputs.version }}-${{ github.sha }}.zip"
+          mv "output/ModSubUiAngularJs.mod.zip" "output/mySubUi-${{ github.event.inputs.version }}-${{ github.sha }}.zip"
 
       - name: Archive Release (Releases Manually)
         uses: softprops/action-gh-release@v1
         if: ${{ github.event_name == 'workflow_dispatch' }}
         with:
           files: |
-            output/myModSubUi-${{ github.event.inputs.version }}-${{ github.sha }}.zip
+            output/mySubUi-${{ github.event.inputs.version }}-${{ github.sha }}.zip
           name: Release v${{ github.event.inputs.version }}
           tag_name: v${{ github.event.inputs.version }}-${{ github.sha }}
           body: Release v${{ github.event.inputs.version }}-${{ github.sha }}
+          prerelease: true
 
       - name: Archive Release (Releases Auto)
         uses: softprops/action-gh-release@v1
