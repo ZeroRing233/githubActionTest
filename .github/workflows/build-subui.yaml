@@ -36,7 +36,6 @@ jobs:
         node-version: [ 18.x ]
 
     steps:
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -58,12 +57,12 @@ jobs:
           #submodules: recursive
 
       - name: ModLoader
-      uses: actions/checkout@v4
-      with:
-        repository: Lyoko-Jeremie/sugarcube-2-ModLoader
-        path: ModLoader
-        ref: master
-        submodules: recursive
+        uses: actions/checkout@v4
+        with:
+          repository: Lyoko-Jeremie/sugarcube-2-ModLoader
+          path: ModLoader
+          ref: master
+          submodules: recursive
 
       - name: init ModLoader
         working-directory: ${{ github.workspace }}/ModLoader
