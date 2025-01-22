@@ -31,8 +31,8 @@ jobs:
 
       matrix:
         # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
-        os: [ windows-latest ]
-        #os: [ ubuntu-latest, windows-latest ]
+        # os: [ windows-latest ]
+        os: [ubuntu-latest]
         node-version: [ 18.x ]
 
     steps:
