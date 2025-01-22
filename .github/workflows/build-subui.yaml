@@ -90,7 +90,7 @@ jobs:
       - name: Copy ModSubUiAngularJs
         uses: Lyoko-Jeremie/js-copy-github-action@master
         with:
-          srcBase: ${{ github.workspace }}/SubUi/
+          srcBase: ${{ github.workspace }}/ModLoader/mod/mySubUi/
           source: ModSubUiAngularJs.mod.zip
           destBase: ${{ github.workspace }}/output/
           target: myModSubUi-${{ github.sha }}.zip
