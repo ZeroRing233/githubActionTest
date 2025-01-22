@@ -48,14 +48,6 @@ jobs:
         with:
           submodules: true
 
-      - name: SubUi
-        uses: actions/checkout@v4
-        with:
-          repository: ZeroRing233/ModSubUiAngularJs
-          path: SubUi
-          ref: master
-          #submodules: recursive
-
       - name: ModLoader
         uses: actions/checkout@v4
         with:
@@ -63,6 +55,14 @@ jobs:
           path: ModLoader
           ref: master
           submodules: recursive
+
+      - name: SubUi
+        uses: actions/checkout@v4
+        with:
+          repository: ZeroRing233/ModSubUiAngularJs
+          path: ModLoader/mod/mySubUi
+          ref: master
+          #submodules: recursive
 
       - name: init ModLoader
         working-directory: ${{ github.workspace }}/ModLoader
@@ -80,7 +80,7 @@ jobs:
           yarn run tras:babel
 
       - name: Build ModSubUiAngularJs
-        working-directory: ${{ github.workspace }}/SubUi
+        working-directory: ${{ github.workspace }}/ModLoader/mod/mySubUi
         run: |
           yarn install
           yarn run build:ts
