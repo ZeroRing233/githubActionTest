@@ -80,7 +80,7 @@ jobs:
           yarn run tras:babel
 
       - name: Build ModSubUiAngularJs
-        working-directory: ${{ github.workspace }}/SubUi/ModSubUiAngularJs
+        working-directory: ${{ github.workspace }}/SubUi
         run: |
           yarn install
           yarn run build:ts
